@@ -7,9 +7,7 @@
 #   ex.   : ghsparse.sh images
 #           ghsparse.sh data/images /content/images dev
 #
-#   depuis Colab : !wget -qO- \
-#                    https://gist.githubusercontent.com/shuuchuu/datasets/raw/ghsparse.sh \
-#                    | bash -s -- landscape /content/landscape
+#   depuis Colab : !wget -qO- https://github.com/shuuchuu/datasets/raw/refs/heads/main/ghsparse.sh | bash -s landscape
 
 set -euo pipefail
 
