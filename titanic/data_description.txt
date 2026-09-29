@@ -1,0 +1,7 @@
+Titanic
+===
+
+Compétition classique, très utile pour tester des modèles de
+classification sur un dataset simple avant de les tester sur des
+datasets réels où beaucoup d'ingénierie est nécessaire :
+https://www.kaggle.com/c/titanic/
