@@ -3,11 +3,11 @@
     uv run --no-project --with pandas --with pyarrow --with wordfreq python build.py
 
 For each issue: join its pages, rejoin the words the OCR split at a line end
-("con- tinuer", "con-\ntinuer") when the joined word is French (wordfreq), then
+("con- tinuer", "con-\ntinuer") when the joined word is French (wordfreq), and
+two words one of which isn't French when together they are ("gou vernement"), then
 pack the lines (a line over 250 words cut into its sentences) into passages
 of 100 to 250 words, ending at a sentence end when possible (a sentence over
-250 words stays whole). A
-passage's `noise` is the share of its words wordfreq doesn't know; passages
+250 words stays whole). A passage's `noise` is the share of its words wordfreq doesn't know; passages
 above 0.15 are dropped, and exact duplicates (case and spaces aside) too.
 """
 
@@ -22,6 +22,7 @@ from wordfreq import zipf_frequency
 MIN_WORDS, MAX_WORDS, MAX_NOISE = 100, 250, 0.15
 WORD = re.compile(r"[^\W\d_]+(?:['’][^\W\d_]+)?")
 SPLIT = re.compile(r"([^\W\d_]+)-\s+([^\W\d_]+)")
+SPACED = re.compile(r"\b([^\W\d_]+) ([^\W\d_]+)\b")
 END = re.compile(r"[.!?»]\s*$")
 SENTENCE = re.compile(r"(?<=[.!?»])\s+(?=[«—A-ZÀ-Ý])")
 _known: dict[str, bool] = {}
@@ -39,7 +40,15 @@ def rejoin(text: str) -> str:
         joined = match[1] + match[2]
         return joined if known(joined) else match[0]
 
-    return SPLIT.sub(fix, text)
+    def fix_spaced(match: re.Match[str]) -> str:
+        first, second = match[1], match[2]
+        joined = first + second
+        split = not (known(first) and known(second))
+        if split and second[0].islower() and len(joined) >= 5 and known(joined):
+            return joined
+        return match[0]
+
+    return SPACED.sub(fix_spaced, SPLIT.sub(fix, text))
 
 
 def noise(text: str) -> float:
