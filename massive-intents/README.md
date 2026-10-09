@@ -11,6 +11,11 @@ each other, with the same `id`.
   2,974 requests per language), the original splits.
 - `intents.csv`: each intent's one-line description, in French and English (written for
   the labs, not part of MASSIVE).
+- `lab-results/predictions-<fr|en>.csv` and `lab-results/timings-<fr|en>.csv`: the
+  results of the encoder classification lab (one Colab T4 run per language), which the
+  LLM classification lab compares with: each method's prediction for every test request
+  (`id`, `label`, one column per method), and each method's training time (`train_s`) and
+  prediction time per request (`ms_per_text`).
 
 ## Source
 
