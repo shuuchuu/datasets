@@ -34,12 +34,14 @@ which creates `landscape/`. To get a single file:
 | `france-departements` | French départements and regions reference tables | PDDL / ODbL |
 | `fraud-emails` | CLAIR "Nigerian" fraud e-mails | CC BY-SA 4.0 |
 | `french-press-1914` | OCR'd 1914 issues of *L'Humanité* and *Le Figaro* (BnF) | Public domain |
-| `french-press-1914-passages` | `french-press-1914` cut into 64,598 passages of 100–250 words | Public domain |
+| `french-press-1914-passages` | `french-press-1914` cut into 64,598 passages of 100–250 words, with their embeddings | Public domain |
 | `incident-response-log` | ServiceNow incident event log | CC0 |
 | `landscape` | Intel natural scene images, 6 classes | © Original authors |
 | `massive-intents` | Amazon MASSIVE voice assistant requests, 60 intents, French and English | CC BY 4.0 |
 | `nantes-open-data` | Nantes bike stations and polling stations snapshots | Licence Ouverte |
 | `nginx-log` | Online shop nginx access log | CC0 |
+| `press-1914-extraction` | People, places and organizations of 40 `french-press-1914-passages` passages, plus LLM labels for distillation | CC BY 4.0 |
+| `press-1914-qa` | 20 questions on `french-press-1914-passages`, with answers and source passages | CC BY 4.0 |
 | `python-exercises` | Small files for Python course exercises | Own data / public domain |
 | `titanic` | Titanic passengers (Kaggle split) | None stated |
 | `titanic3` | Titanic passengers, full `titanic3` version (OpenML) | Public |

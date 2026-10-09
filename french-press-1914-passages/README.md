@@ -15,6 +15,12 @@ answering labs.
   joined word is French, lines
   packed into passages ending at a sentence end, noisy passages and exact duplicates
   dropped. The OCR errors inside the passages are left as they are.
+- `embeddings-512.npy`: the passages' embeddings, in `passages.parquet`'s order, a
+  float16 array of shape (64598, 512): `Qwen/Qwen3-Embedding-0.6B`
+  (sentence-transformers' `encode_document`, `max_seq_length` 512, in float16 on a
+  GPU), truncated to their first 512 dimensions (the model is trained Matryoshka-style)
+  and normalized to unit length. Encode queries with the same model and
+  `truncate_dim=512` (`encode_query`), and normalize them.
 
 ## Source
 
