@@ -1,0 +1,61 @@
+label,description_fr,description_en
+alarm_query,Consulter les alarmes réglées,Check the alarms that are set
+alarm_remove,Supprimer ou arrêter une alarme,Remove or stop an alarm
+alarm_set,Régler une nouvelle alarme ou un réveil,Set a new alarm or wake-up call
+audio_volume_down,Baisser le volume,Turn the volume down
+audio_volume_mute,Couper le son ou faire taire l'assistant,Mute the sound or silence the assistant
+audio_volume_other,Autre réglage du volume,Other volume setting
+audio_volume_up,Augmenter le volume,Turn the volume up
+calendar_query,Consulter l'agenda ou un événement prévu,Check the calendar or a planned event
+calendar_remove,Supprimer ou annuler un événement de l'agenda,Remove or cancel a calendar event
+calendar_set,Ajouter un événement ou un rappel à l'agenda,Add an event or reminder to the calendar
+cooking_query,Question générale sur la cuisine ou quoi cuisiner,General question about cooking or what to cook
+cooking_recipe,Demander une recette ou une étape de recette,Ask for a recipe or a recipe step
+datetime_convert,Convertir une heure entre fuseaux horaires,Convert a time between time zones
+datetime_query,Demander l'heure ou la date,Ask for the time or the date
+email_addcontact,Ajouter un contact ou une adresse e-mail,Add a contact or an email address
+email_query,Consulter ses e-mails,Check one's emails
+email_querycontact,Chercher les coordonnées d'un contact ou l'appeler,Look up or call a contact
+email_sendemail,Envoyer ou répondre à un e-mail,Send or reply to an email
+general_greet,Saluer l'assistant ou prendre des nouvelles,Greet the assistant or ask how it is
+general_joke,Demander une blague,Ask for a joke
+general_quirky,Demande inhabituelle ou hors des autres catégories,Unusual request outside the other categories
+iot_cleaning,Lancer un appareil de ménage (aspirateur robot),Start a cleaning appliance (robot vacuum)
+iot_coffee,Faire préparer un café,Have a coffee made
+iot_hue_lightchange,Changer la couleur ou l'ambiance des lumières,Change the color or mood of the lights
+iot_hue_lightdim,Baisser l'intensité des lumières,Dim the lights
+iot_hue_lightoff,Éteindre les lumières,Turn the lights off
+iot_hue_lighton,Allumer les lumières,Turn the lights on
+iot_hue_lightup,Augmenter l'intensité des lumières,Brighten the lights
+iot_wemo_off,Éteindre une prise connectée,Turn a smart plug off
+iot_wemo_on,Allumer une prise connectée,Turn a smart plug on
+lists_createoradd,Créer une liste ou y ajouter un élément,Create a list or add an item to it
+lists_query,Consulter une liste,Check a list
+lists_remove,Supprimer une liste ou un élément d'une liste,Remove a list or an item from it
+music_dislikeness,Dire qu'on n'aime pas une musique,Say one dislikes some music
+music_likeness,Dire qu'on aime une musique ou un artiste,Say one likes some music or an artist
+music_query,Demander des informations sur la musique en cours,Ask about the music playing
+music_settings,Régler la lecture de musique (aléatoire ou répétition),Change music playback settings (shuffle or repeat)
+news_query,Demander les actualités,Ask for the news
+play_audiobook,Lire ou contrôler un livre audio,Play or control an audiobook
+play_game,Lancer un jeu,Start a game
+play_music,Jouer une musique ou un artiste,Play some music or an artist
+play_podcasts,Lire ou contrôler un podcast,Play or control a podcast
+play_radio,Écouter une station de radio,Play a radio station
+qa_currency,Question sur une devise ou un taux de change,Question about a currency or an exchange rate
+qa_definition,Demander une définition ou une description,Ask for a definition or a description
+qa_factoid,Question factuelle de culture générale,General knowledge factual question
+qa_maths,Faire un calcul,Do a calculation
+qa_stock,Question sur le cours d'une action ou la bourse,Question about a stock price or the stock market
+recommendation_events,Demander des idées de sorties ou d'événements,Ask for outings or events to attend
+recommendation_locations,Demander un lieu à recommander (restaurant ou magasin),Ask for a place to go (restaurant or shop)
+recommendation_movies,Demander un film à regarder,Ask for a movie to watch
+social_post,Publier sur un réseau social,Post on a social network
+social_query,Consulter un réseau social,Check a social network
+takeaway_order,Commander un repas à emporter ou en livraison,Order takeaway or delivery food
+takeaway_query,Se renseigner sur les plats à emporter ou la livraison,Ask about takeaway or delivery options
+transport_query,Demander un itinéraire ou des informations de transport,Ask for directions or transport information
+transport_taxi,Réserver un taxi ou un VTC,Book a taxi or a ride
+transport_ticket,Chercher ou réserver un billet de train ou d'avion,Look for or book a train or plane ticket
+transport_traffic,Demander l'état de la circulation,Ask about the traffic
+weather_query,Demander la météo,Ask about the weather

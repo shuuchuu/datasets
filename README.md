@@ -30,12 +30,14 @@ which creates `landscape/`. To get a single file:
 | `dpkg-logs` | dpkg logs of an Ubuntu machine | Own data |
 | `drug-reviews` | Drugs.com patient reviews (UCI) | CC BY 4.0 |
 | `dvf` | French real estate transactions 2014–2022, Parquet | Licence Ouverte 2.0 |
+| `esci-products-subset` | Amazon Shopping Queries: 20,027 products, 150 queries, relevance judgments | Apache 2.0 |
 | `france-departements` | French départements and regions reference tables | PDDL / ODbL |
 | `fraud-emails` | CLAIR "Nigerian" fraud e-mails | CC BY-SA 4.0 |
 | `french-press-1914` | OCR'd 1914 issues of *L'Humanité* and *Le Figaro* (BnF) | Public domain |
 | `french-press-1914-passages` | `french-press-1914` cut into 64,598 passages of 100–250 words | Public domain |
 | `incident-response-log` | ServiceNow incident event log | CC0 |
 | `landscape` | Intel natural scene images, 6 classes | © Original authors |
+| `massive-intents` | Amazon MASSIVE voice assistant requests, 60 intents, French and English | CC BY 4.0 |
 | `nantes-open-data` | Nantes bike stations and polling stations snapshots | Licence Ouverte |
 | `nginx-log` | Online shop nginx access log | CC0 |
 | `python-exercises` | Small files for Python course exercises | Own data / public domain |
