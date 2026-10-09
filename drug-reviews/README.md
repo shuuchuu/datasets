@@ -7,9 +7,13 @@ condition, a 1–10 rating, the review's date and how many users found it useful
 
 - `drugsComTrain_raw.tsv`: 75% of the reviews.
 - `drugsComTest_raw.tsv`: the other 25%.
+- `drugsComTest_pain_fr.tsv`: a French machine translation (Google Translate, 2026-10)
+  of the 926 reviews of `drugsComTest_raw.tsv` whose condition is `Pain` and rating 1
+  or 10, with their HTML entities decoded. A monitoring lab swaps some of them in to
+  simulate an ingestion bug that brings in a language the model wasn't trained on.
 
 Tab-separated, columns: (unnamed id), `drugName`, `condition`, `review`, `rating`,
-`date`, `usefulCount`.
+`date`, `usefulCount`; `drugsComTest_pain_fr.tsv` has `id` (the same id) and `review`.
 
 ## Source
 
