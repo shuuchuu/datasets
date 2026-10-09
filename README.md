@@ -33,6 +33,7 @@ which creates `landscape/`. To get a single file:
 | `france-departements` | French départements and regions reference tables | PDDL / ODbL |
 | `fraud-emails` | CLAIR "Nigerian" fraud e-mails | CC BY-SA 4.0 |
 | `french-press-1914` | OCR'd 1914 issues of *L'Humanité* and *Le Figaro* (BnF) | Public domain |
+| `french-press-1914-passages` | `french-press-1914` cut into 64,610 passages of 100–250 words | Public domain |
 | `incident-response-log` | ServiceNow incident event log | CC0 |
 | `landscape` | Intel natural scene images, 6 classes | © Original authors |
 | `nantes-open-data` | Nantes bike stations and polling stations snapshots | Licence Ouverte |
