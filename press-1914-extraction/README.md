@@ -8,6 +8,13 @@ places and organizations each passage names.
 - `gold.jsonl`: 40 hand-annotated passages, one per line: `id` (the passage's id in
   `french-press-1914-passages`), `text`, `people`, `places`, `organizations`.
 - `gold-records.py`: the annotations, and the script that writes `gold.jsonl`.
+- `distill.jsonl`: 1,999 other passages (`noise` under 0.05, none of the gold ones), with
+  the entities a teacher LLM extracted (`qwen3:4b-instruct-2507-q4_K_M` through Ollama,
+  structured output, temperature 0, the extraction lab's French prompt): `id`, `text`, `people`,
+  `places`, `organizations`. Training data for distilling the task into a smaller model;
+  the labels are the teacher's, unchecked.
+- `teacher-gold.jsonl`: the same teacher's extractions on the gold passages (`id`,
+  `people`, `places`, `organizations`), to compare a student model with it.
 
 ## Annotation guide
 
@@ -20,7 +27,8 @@ places and organizations each passage names.
   entities.
 - Passages mixing several news items keep the entities of all of them.
 
-Annotated by an LLM (Claude), each entity checked against its passage's text.
+`gold.jsonl` was annotated by an LLM (Claude), each entity checked against its passage's
+text.
 
 ## License
 
