@@ -21,6 +21,11 @@ answering labs.
   GPU), truncated to their first 512 dimensions (the model is trained Matryoshka-style)
   and normalized to unit length. Encode queries with the same model and
   `truncate_dim=512` (`encode_query`), and normalize them.
+- `lab-results/month-embeddings.npy`: the full embeddings (float16, shape (3950, 1024)) of
+  the passages dated 1914-07-20 to 1914-08-10, in `passages.parquet`'s order, as the
+  sentence embeddings lab computes them on a GPU (`Qwen/Qwen3-Embedding-0.6B` in float16,
+  `encode_document`, `max_seq_length` 512, batches of 32; Colab's image on an RTX A4000):
+  what the lab loads when it runs without a GPU.
 
 ## Source
 

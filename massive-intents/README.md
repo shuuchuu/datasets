@@ -11,11 +11,17 @@ each other, with the same `id`.
   2,974 requests per language), the original splits.
 - `intents.csv`: each intent's one-line description, in French and English (written for
   the labs, not part of MASSIVE).
-- `lab-results/predictions-<fr|en>.csv` and `lab-results/timings-<fr|en>.csv`: the
-  results of the encoder classification lab (one Colab T4 run per language), which the
-  LLM classification lab compares with: each method's prediction for every test request
-  (`id`, `label`, one column per method), and each method's training time (`train_s`) and
-  prediction time per request (`ms_per_text`).
+- `lab-results/`: the results of the encoder classification lab, one GPU run per
+  language (Colab's image on an RTX A4000, 2026-10-14). `predictions-<fr|en>.csv` and
+  `timings-<fr|en>.csv`, which the LLM classification lab compares with: each method's
+  prediction for every test request (`id`, `label`, one column per method), and each
+  method's training time (`train_s`) and prediction time per request (`ms_per_text`).
+  And what the encoder lab loads when it runs without a GPU:
+  `embeddings-<train|test>-<fr|en>.npy` (float16, (11514, 1024) and (2974, 1024), in the
+  parquet files' order: `Qwen/Qwen3-Embedding-0.6B` in float16, `max_seq_length` 64, the
+  lab's instruction as `prompt`), and `encoder-logits-<fr|en>.npy` (float32, (2974, 60),
+  columns in the sorted order of the labels: the test logits of `jhu-clsp/mmBERT-base`
+  fine-tuned for 3 epochs, the lab's settings).
 
 ## Source
 
