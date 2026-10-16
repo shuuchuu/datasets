@@ -27,6 +27,7 @@ which creates `landscape/`. To get a single file:
 | `ames` | Ames Housing sale prices (Kaggle split) | None stated (educational use) |
 | `bike-sharing` | Capital Bikeshare hourly/daily rentals, 2011–2012 (UCI) | CC BY 4.0 |
 | `classical-authors` | 9 English-language authors, 2 books each, by chapter | Public domain |
+| `credit-default` | Default of Credit Card Clients: 30,000 Taiwanese clients, 2005 (UCI) | CC BY 4.0 |
 | `dpkg-logs` | dpkg logs of an Ubuntu machine | Own data |
 | `drug-reviews` | Drugs.com patient reviews (UCI) | CC BY 4.0 |
 | `dvf` | French real estate transactions 2014–2022, Parquet | Licence Ouverte 2.0 |
