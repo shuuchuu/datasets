@@ -7,7 +7,9 @@
 #   ex.   : ghsparse.sh images
 #           ghsparse.sh data/images /content/images dev
 #
-#   depuis Colab : !wget -qO- https://github.com/shuuchuu/datasets/raw/refs/heads/main/ghsparse.sh | bash -s landscape
+#   depuis Colab : !wget -q https://github.com/shuuchuu/datasets/raw/refs/heads/main/ghsparse.sh -O /tmp/ghsparse.sh && bash /tmp/ghsparse.sh landscape
+#   (pas « wget -qO- … | bash -s » : un pipe sort avec le code de bash, 0 quand le
+#   téléchargement échoue, et le sh de Colab, dash, n'a pas pipefail)
 
 set -euo pipefail
 

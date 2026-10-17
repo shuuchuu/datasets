@@ -10,10 +10,13 @@ Cloning this whole repository downloads every dataset. To get only one directory
 `ghsparse.sh` makes a sparse, partial clone of it, e.g. in Colab:
 
 ```
-!wget -qO- https://github.com/shuuchuu/datasets/raw/refs/heads/main/ghsparse.sh | bash -s landscape
+!wget -q https://github.com/shuuchuu/datasets/raw/refs/heads/main/ghsparse.sh -O /tmp/ghsparse.sh && bash /tmp/ghsparse.sh landscape
 ```
 
-which creates `landscape/`. To get a single file:
+which creates `landscape/`. Not `wget -qO- … | bash -s landscape`: a pipe exits with
+`bash`'s code, 0 when the download failed (`bash` then reads an empty script), and the
+`sh` of Colab and Codespaces (dash) has no `pipefail`, so the failure only shows later,
+as missing files. To get a single file:
 
 ```
 !wget https://github.com/shuuchuu/datasets/raw/refs/heads/main/nginx-log/access-small.log
