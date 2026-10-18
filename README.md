@@ -51,6 +51,7 @@ as missing files. To get a single file:
 | `python-exercises` | Small files for Python course exercises | Own data / public domain |
 | `titanic` | Titanic passengers (Kaggle split) | None stated |
 | `titanic3` | Titanic passengers, full `titanic3` version (OpenML) | Public |
+| `visa-subset` | VisA industrial images with defect masks, 2 categories (circuit board, chewing gum), scaled down, MVTec AD layout | CC BY 4.0 |
 | `voltaire` | 10 works by Voltaire, in French | Public domain |
 | `wikipedia-movie-plots` | Plots of 34,886 movies from Wikipedia | CC BY-SA 4.0 |
 | `wine-quality` | Red Vinho Verde wine quality (UCI) | CC BY 4.0 |
