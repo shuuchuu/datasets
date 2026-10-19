@@ -38,6 +38,7 @@ as missing files. To get a single file:
 | `dvf` | French real estate transactions 2014–2022, Parquet | Licence Ouverte 2.0 |
 | `esci-products-subset` | Amazon Shopping Queries: 20,027 products, 150 queries, relevance judgments | Apache 2.0 |
 | `france-departements` | French départements and regions reference tables | PDDL / ODbL |
+| `france-population` | INSEE population estimates by département, sex and age group, 1975–2023, Excel | Licence Ouverte 2.0 |
 | `fraud-emails` | CLAIR "Nigerian" fraud e-mails | CC BY-SA 4.0 |
 | `french-press-1914` | OCR'd 1914 issues of *L'Humanité* and *Le Figaro* (BnF) | Public domain |
 | `french-press-1914-passages` | `french-press-1914` cut into 64,598 passages of 100–250 words, with their embeddings | Public domain |
