@@ -50,6 +50,7 @@ as missing files. To get a single file:
 | `press-1914-extraction` | People, places and organizations of 40 `french-press-1914-passages` passages, plus LLM labels for distillation | CC BY 4.0 |
 | `press-1914-qa` | 20 questions on `french-press-1914-passages`, with answers and source passages | CC BY 4.0 |
 | `python-exercises` | Small files for Python course exercises | Own data / public domain |
+| `rosie-the-riveter` | A 1943 colour photograph with a red bandana, for colour isolation | Public domain |
 | `titanic` | Titanic passengers (Kaggle split) | None stated |
 | `titanic3` | Titanic passengers, full `titanic3` version (OpenML) | Public |
 | `visa-subset` | VisA industrial images with defect masks, 2 categories (circuit board, chewing gum), scaled down, MVTec AD layout | CC BY 4.0 |
