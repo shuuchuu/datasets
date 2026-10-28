@@ -29,6 +29,7 @@ as missing files. To get a single file:
 | `20newsgroups` | 20 Newsgroups Usenet posts (bydate split) | None stated |
 | `ames` | Ames Housing sale prices (Kaggle split) | None stated (educational use) |
 | `bike-sharing` | Capital Bikeshare hourly/daily rentals, 2011–2012 (UCI) | CC BY 4.0 |
+| `bike-shop` | Made-up till files of a bike shop: a `cp1252` Excel export, a million receipts | CC BY 4.0 |
 | `bluesky-ikea-synthetic` | Synthetic Bluesky-like posts about Ikea, French and English, with a real search's noise | CC BY 4.0 |
 | `classical-authors` | 9 English-language authors, 2 books each, by chapter | Public domain |
 | `coco-val2017-open` | 943 COCO val2017 photos under CC BY / CC BY-SA, with their object annotations | CC BY 4.0 (annotations), CC BY 2.0 / CC BY-SA 2.0 (images) |
@@ -50,6 +51,7 @@ as missing files. To get a single file:
 | `press-1914-extraction` | People, places and organizations of 40 `french-press-1914-passages` passages, plus LLM labels for distillation | CC BY 4.0 |
 | `press-1914-qa` | 20 questions on `french-press-1914-passages`, with answers and source passages | CC BY 4.0 |
 | `python-exercises` | Small files for Python course exercises | Own data / public domain |
+| `ravens` | Two ravens of the Tower of London, a colour photograph for image processing | CC BY-SA 4.0 |
 | `rosie-the-riveter` | A 1943 colour photograph with a red bandana, for colour isolation | Public domain |
 | `titanic` | Titanic passengers (Kaggle split) | None stated |
 | `titanic3` | Titanic passengers, full `titanic3` version (OpenML) | Public |
