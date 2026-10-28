@@ -29,7 +29,7 @@ as missing files. To get a single file:
 | `20newsgroups` | 20 Newsgroups Usenet posts (bydate split) | None stated |
 | `ames` | Ames Housing sale prices (Kaggle split) | None stated (educational use) |
 | `bike-sharing` | Capital Bikeshare hourly/daily rentals, 2011–2012 (UCI) | CC BY 4.0 |
-| `bike-shop` | Made-up till files of a bike shop: a `cp1252` Excel export, a million receipts | CC BY 4.0 |
+| `bike-shop` | Made-up data of a bike shop: a `cp1252` Excel export, a million receipts, daily rentals | CC BY 4.0 |
 | `bluesky-ikea-synthetic` | Synthetic Bluesky-like posts about Ikea, French and English, with a real search's noise | CC BY 4.0 |
 | `classical-authors` | 9 English-language authors, 2 books each, by chapter | Public domain |
 | `coco-val2017-open` | 943 COCO val2017 photos under CC BY / CC BY-SA, with their object annotations | CC BY 4.0 (annotations), CC BY 2.0 / CC BY-SA 2.0 (images) |

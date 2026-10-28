@@ -1,8 +1,8 @@
-# Bike shop till files
+# Bike shop till files and rentals
 
-Made-up till files of the fictional bike shop of shuuchuu's pandas course (Lille,
-Amiens, Nice, Marseille, Nantes and Rennes), for the course notes' chapters on reading
-files and on column types.
+Made-up data of the fictional bike shop of shuuchuu's pandas course (Lille, Amiens,
+Nice, Marseille, Nantes and Rennes), for the course notes' pandas chapters: reading
+files, column types, dates and time series.
 
 ## Files
 
@@ -15,10 +15,15 @@ files and on column types.
   (euros, two decimals).
 - `generate.py`: writes both files (`python generate.py`, standard library only,
   seeded).
+- `velos.csv`: the shop's daily bike rentals, 2025-01-01 to 2026-06-30, UTF-8. Columns
+  `date` (ISO), `locations` (rentals that day), `temperature` (°C, one decimal).
+  Synthetic: a seasonal temperature, fewer rentals at weekends and on rainy days, drawn
+  with NumPy from a fixed seed by the figure code of shuuchuu's pandas slides
+  (`bike_rentals()`), whose plots show the same data.
 
 ## Source
 
-Written for shuuchuu's pandas course by Shuuchuu; the receipts are invented.
+Written for shuuchuu's pandas course by Shuuchuu; the receipts and rentals are invented.
 
 ## License
 
