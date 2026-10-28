@@ -1,7 +1,7 @@
 # French départements
 
-Reference tables of the French départements and their regions, to join with other
-datasets (e.g. `../dvf`).
+Reference tables and outlines of the French départements and their regions, to join
+with other datasets (e.g. `../dvf`) or draw them on a map.
 
 ## Files
 
@@ -18,3 +18,11 @@ datasets (e.g. `../dvf`).
     `70cef74f-70b1-495a-8500-c089229c0254`, 2020-04-25).
   - License: ODC ODbL (https://opendatacommons.org/licenses/odbl/): attribute the
     source, and share a database derived from it under the ODbL.
+- `departements-version-simplifiee.geojson`: the outlines of the 96 départements of
+  metropolitan France, simplified for web maps (choropleths), one feature per
+  département with properties `code` and `nom`.
+  - Source: Grégoire David, *france-geojson*,
+    https://github.com/gregoiredavid/france-geojson (file of the same name, downloaded
+    2026-10-28), drawn from IGN Admin Express COG 2018 (outlines) and INSEE 2018
+    (names and codes), simplified to 5 %.
+  - License: Licence Ouverte / Open Licence (Etalab), Admin Express's terms of use.
