@@ -13,13 +13,18 @@ files, column types, dates and time series.
 - `tickets-2025.csv`: a million receipts of 2025, UTF-8, `,` between fields. Columns
   `ville` (one of the six cities, drawn at random), `quantite` (1 to 5), `montant`
   (euros, two decimals).
-- `generate.py`: writes both files (`python generate.py`, standard library only,
-  seeded).
 - `velos.csv`: the shop's daily bike rentals, 2025-01-01 to 2026-06-30, UTF-8. Columns
   `date` (ISO), `locations` (rentals that day), `temperature` (°C, one decimal).
   Synthetic: a seasonal temperature, fewer rentals at weekends and on rainy days, drawn
   with NumPy from a fixed seed by the figure code of shuuchuu's pandas slides
   (`bike_rentals()`), whose plots show the same data.
+- `en/`: the same three files for the English course notes, same rows and formats
+  under English column names. `till.csv` (`date`, `city`, `postcode`, `product`,
+  `amount`; still a French Excel export, `vélo` and `casque` included),
+  `tickets-2025.csv` (`city`, `quantity`, `amount`) and `bikes.csv` (`date`,
+  `rentals`, `temperature`).
+- `generate.py`: writes `caisse.csv`, `tickets-2025.csv` and the `en/` files from
+  them (`python generate.py`, standard library only, seeded).
 
 ## Source
 
