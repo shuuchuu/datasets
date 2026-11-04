@@ -39,4 +39,5 @@ git -C "$work" sparse-checkout set --cone "$folder"
 [ -d "$work/$folder" ] || { echo "erreur : '$folder' introuvable dans $REPO${branch:+ (branche $branch)}" >&2; exit 1; }
 mv "$work/$folder" "$dest"
 
-echo "✓ $dest — $(find "$dest" -type f | wc -l) fichiers, $(du -sh "$dest" | cut -f1)"
+# sans mot : la ligne s'affiche dans les notebooks français comme anglais
+echo "✓ $dest — $(du -sh "$dest" | cut -f1)"
