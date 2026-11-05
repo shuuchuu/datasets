@@ -34,6 +34,7 @@ as missing files. To get a single file:
 | `classical-authors` | 9 English-language authors, 2 books each, by chapter | Public domain |
 | `coco-val2017-open` | 943 COCO val2017 photos under CC BY / CC BY-SA, with their object annotations | CC BY 4.0 (annotations), CC BY 2.0 / CC BY-SA 2.0 (images) |
 | `credit-default` | Default of Credit Card Clients: 30,000 Taiwanese clients, 2005 (UCI) | CC BY 4.0 |
+| `dictionary-fr` | French Hunspell dictionary (Grammalecte, `dictionary-fr` 3.0.0) | MPL 2.0 |
 | `dpkg-logs` | dpkg logs of an Ubuntu machine | Own data |
 | `drug-reviews` | Drugs.com patient reviews (UCI) | CC BY 4.0 |
 | `dvf` | French real estate transactions 2014–2022, Parquet | Licence Ouverte 2.0 |

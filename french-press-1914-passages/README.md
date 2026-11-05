@@ -10,6 +10,8 @@ answering labs.
 - `passages.parquet`: one row per passage: `id` (`<newspaper>-<date>-<n>`),
   `newspaper`, `date`, `text`, `n_words`, `noise` (the share of its words that
   `wordfreq` doesn't know as French, at most 0.15).
+  `noise` and the rejoined words of `build.py` depend on `wordfreq`, whose README says
+  its data, a snapshot of usage through about 2021, is unlikely to be updated again.
 - `build.py`: the script that built it from `../french-press-1914` (its docstring
   says how): OCR line-end hyphenations and spaced splits ("gou vernement") rejoined when the
   joined word is French, lines
