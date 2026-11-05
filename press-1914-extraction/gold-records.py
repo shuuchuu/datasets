@@ -1,4 +1,4 @@
-"""The hand-annotated records of gold.jsonl (python gold-records.py writes it)."""
+"""The LLM-annotated records of gold.jsonl, each entity checked against its passage's text (python gold-records.py writes it)."""
 
 import json
 from pathlib import Path

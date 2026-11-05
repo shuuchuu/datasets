@@ -5,7 +5,7 @@ places and organizations each passage names.
 
 ## Files
 
-- `gold.jsonl`: 40 hand-annotated passages, one per line: `id` (the passage's id in
+- `gold.jsonl`: 40 LLM-annotated passages, one per line: `id` (the passage's id in
   `french-press-1914-passages`), `text`, `people`, `places`, `organizations`.
 - `gold-records.py`: the annotations, and the script that writes `gold.jsonl`.
 - `distill.jsonl`: 1,999 other passages (`noise` under 0.05, none of the gold ones), with

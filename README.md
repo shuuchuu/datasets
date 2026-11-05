@@ -43,6 +43,7 @@ as missing files. To get a single file:
 | `fraud-emails` | CLAIR "Nigerian" fraud e-mails | CC BY-SA 4.0 |
 | `french-press-1914` | OCR'd 1914 issues of *L'Humanité* and *Le Figaro* (BnF) | Public domain |
 | `french-press-1914-passages` | `french-press-1914` cut into 64,598 passages of 100–250 words, with their embeddings | Public domain |
+| `frwac-word2vec` | French word2vec embeddings trained on frWac (Jean-Philippe Fauconnier) | CC BY 3.0 |
 | `incident-response-log` | ServiceNow incident event log | CC0 |
 | `landscape` | Intel natural scene images, 6 classes | © Original authors |
 | `massive-intents` | Amazon MASSIVE voice assistant requests, 60 intents, French and English | CC BY 4.0 |
