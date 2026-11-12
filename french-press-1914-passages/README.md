@@ -1,8 +1,9 @@
 # French Press 1914, Passages
 
-64,598 passages of 100 to 250 words (median 118) cut from `french-press-1914`, the
-OCR'd 1914 issues of *L'Humanité* (57,875 passages) and *Le Figaro* (6,723): a
-corpus of reasonable units for search, topic modelling, extraction and question
+64,598 passages of at least 100 words, almost all up to 250 (median 118; 75 are
+longer, up to 573, a sentence over 250 words staying whole), cut from
+`french-press-1914`, the OCR'd 1914 issues of *L'Humanité* (57,875 passages) and
+*Le Figaro* (6,723): a corpus of reasonable units for search, topic modelling, extraction and question
 answering labs.
 
 ## Files
