@@ -22,6 +22,16 @@ each other, with the same `id`.
   lab's instruction as `prompt`), and `encoder-logits-<fr|en>.npy` (float32, (2974, 60),
   columns in the sorted order of the labels: the test logits of `jhu-clsp/mmBERT-base`
   fine-tuned for 3 epochs, the lab's settings).
+- `lab-results/llm-*`: the results of the LLM classification lab, one GPU run per
+  language (Colab's image on an RTX A4000, 2026-11-13), which that lab loads when it
+  runs without a GPU: `llm-predictions-<fr|en>.csv`, the predictions of
+  `qwen3:4b-instruct-2507-q4_K_M` (Ollama, temperature 0, output constrained to the 60
+  labels) on the lab's 300 test requests (`predictions-<fr|en>.csv` sampled with
+  `random_state=0`): `id`, `label`, `zero_shot` (the intents' list and descriptions as
+  the system prompt) and `few_shot` (plus two training examples per intent,
+  `random_state=0`); `llm-timings-<fr|en>.csv`, each prompt's time per request
+  (`ms_per_text`, 8 requests at a time) and its prompt's length (`prompt_tokens`, for the
+  first request).
 
 ## Source
 
