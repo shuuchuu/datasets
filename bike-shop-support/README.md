@@ -11,6 +11,13 @@ the raw export into a training set, fine-tune a small model with QLoRA, evaluate
 (exact match on `categorie` and `priorite`, ROUGE and an LLM judge on `reponse`), then
 align its tone with DPO.
 
+The course's agent chapters use `agent/` instead (below): the shop's customer-support
+agent, which reads a customer's message, calls the shop's tools (an order's record, the
+stock, the policies, a ticket, a hand-over to a person), then replies as the charter
+says. Its labs build a tool-calling training set from it, fine-tune a small model on it,
+plug the model into the agent and compare it with the base model on a frozen
+evaluation set.
+
 ## Files
 
 - `charte.md`: the support desk's reply guide, in French, about one page: the two labels,
@@ -43,6 +50,23 @@ align its tone with DPO.
   `categorie`, `priorite`, `reponse`), plus `categorie` as a class index, in the sorted
   order of the seven categories (`compte` 0 … `retour` 6). The training labs load it, so
   they don't depend on each trainee's cleaning.
+- `lab-results/agent-sft-<train|validation>.jsonl`: the agent's tool-calling training
+  set, which the lab `genai/fine-tuning/tool-calling/support-tool-calls-datasets` of
+  shuuchuu's labs builds from `agent/` (below), its solutions run as they stand: 599 / 63
+  examples in TRL's conversational format with tools. `messages`: the agent's system
+  prompt (the one the agent chapters give it), the customer's message, each call in an
+  `assistant` message's `tool_calls` with its arguments as a JSON string, its result in
+  a `tool` message, then the reply; `tools`: the five schemas of `agent/outils.json`, as
+  a JSON string (TRL's `SFTTrainer` reads it); `id`, `source` (`erreur` and `voisin`:
+  the requests the reference agent got wrong on a sample of the pool, and others of
+  their scenarios; `historique`: the rest of the pool; `synthetique`) and `classe` (the
+  expected calls). Up to 80 examples per class, split by phrasing (`gabarit`), none near
+  `agent/eval.jsonl`. This version comes from a run without a GPU: Qwen3-0.6B as the
+  reference agent on 12 requests, Qwen3-1.7B writing 4 synthetic messages, of which
+  none passed the filters and the charter, so the rare classes keep their pool counts
+  (`hors_sujet` 8, `refus` 13, `remerciement` 35). A run on a GPU (Qwen3-1.7B on 240
+  requests, Qwen3-4B-Instruct-2507 for about 300 synthetic messages) is to replace it.
+  The fine-tuning lab of the agent loads it, so it doesn't depend on each trainee's run.
 - `generate.py`: writes `tickets.csv` and `test.jsonl` (`python generate.py`, standard
   library only, seeded: the same bytes each run) and prints the counts below.
 
@@ -133,6 +157,110 @@ charter, whatever the original reply was.
 The export holds the original row of each of these tickets (three of them twice), with
 its original reply: 26 of them are empty, unusable or Jordan's. Training on the export
 as it is leaks the test messages: the labs remove these `ticket_id` before training.
+
+## The agent's data (`agent/`)
+
+The data of the customer-support agent of Biclou & Cie, which the course's agent
+chapters build, fine-tune and evaluate: its tools, what they read, and requests
+annotated with what the agent must do. Same scenarios as the tickets, plus three groups
+the agent answers without a tool.
+
+### Files
+
+- `outils.json`: the five tools' JSON schemas, as `transformers.utils.get_json_schema`
+  writes them from the labs' Python functions (French names and descriptions).
+- `commandes.csv`: what `chercher_commande` reads, 603 orders: every order number a
+  request names (303), and 300 that none does, of every status, for the labs' synthetic
+  examples. Columns: `numero` (`CMD-` and 6 digits), `date_commande`, `canal`
+  (`en_ligne`, `magasin`), `magasin` (a store purchase's city), `articles`, `montant`
+  (euros), `paiements` (2 for a double charge), `statut` (`en_preparation`, `expediee`,
+  `livree`, `retour_en_controle`, `remboursee`, `retiree_en_magasin`), `transporteur`
+  (three made-up carriers), `numero_suivi`, `date_expedition`, `dernier_suivi` (the last
+  tracking event of a parcel still on its way), `date_livraison`, `date_retour_recu`.
+  Dates are `YYYY-MM-DD`, consistent with what the request says (a parcel late by 8 to
+  12 days, lost for more than 10 working days, a return received and being checked...).
+- `stock.csv`: what `verifier_stock` reads, the stock of 2026-11-16: `modele` (the 11
+  bikes), `taille` (`S` to `XL`), `magasin` (the six stores), `quantite` (0 for 78 of the
+  264 rows), `reassort` (the next delivery, for the rows at 0).
+- `demandes.jsonl`: the pool, 1,300 requests of 2026-10-01 to 2026-11-15, the
+  annotated history the labs draw their training data from. One JSON object per line:
+  - `id` (`D-0001`, in date order), `date`, `canal`, `langue` (`fr`, or `en` for 32);
+  - `scenario` (the tickets' 32, plus `remerciement`, `hors_sujet`, `refus`), `gabarit`
+    (the phrasing: `<scenario>/<langue>/<index>`), `cas` (`nominal`; `sans_numero`, an
+    order follow-up without its number; `commande_introuvable`, a number the system
+    doesn't know), `categorie` and `priorite` (the scenario's, empty for the three new
+    groups), `bruit` (the message's noise: `fautes`, `sans accents`, `capitales`);
+  - `message`: the customer's message, signed or not, with the noise of the tickets
+    (typos, no accents, `Bjr`), no personal data but a name;
+  - `appels_attendus`: the calls the agent must make, in order, each
+    `{"name": ..., "arguments": {...}}`, empty for no tool;
+  - `resultats_outils`: what each call returns, from the files above;
+  - `reponse`: the reply that follows, as the charter says and consistent with the
+    results (the parent's replies, plus the facts of the order's record, the stock, the
+    ticket's or the hand-over's number).
+- `eval.jsonl`: the frozen evaluation set, 139 requests of 2026-11-16 to 2026-11-19
+  (`E-001`...), in the same format. The models the agent chapters compare are measured
+  on it, and nothing is trained on it: its messages come from phrasings the pool never
+  uses (one or two per scenario, held out), none of its order numbers is in the pool, and
+  no message is near a pool one (the highest word-trigram Jaccard is 0.15).
+- `generate.py`: writes them (`python agent/generate.py`, standard library only, seeded:
+  the same bytes each run) and prints the counts below. It imports `../generate.py`'s
+  scenarios and slots, and doesn't change `tickets.csv` nor `test.jsonl`.
+
+### The tools
+
+| Tool | Arguments | Returns |
+| --- | --- | --- |
+| `chercher_commande(numero)` | `numero`: `CMD-` and 6 digits | the order's row without its empty fields; `{"erreur": ...}` for a number not in the file or not in this format |
+| `verifier_stock(modele, taille, magasin)` | `modele`: one of the 11 bikes; `taille`: `S`, `M`, `L`, `XL`; `magasin`: one of the six cities | `modele`, `taille`, `magasin`, `quantite`, and `reassort` when it is 0; `{"erreur": ...}` for a value not in the file |
+| `chercher_politique(theme, question)` | `theme`: `retours`, `livraison`, `garantie`, `atelier`, `location`, `facturation`, `compte`, `magasins`, `tailles` (the sections of `charte.md`'s policy); `question`: free text | `theme` and `passages`: up to 3 sentences of the section, those sharing the most words with the question (words of 4 letters or more, compared by their first 5 letters, accents and case aside; document order between ties) |
+| `creer_ticket(categorie, priorite, resume)` | `categorie`: the 7 categories; `priorite`: `basse`, `normale`, `haute`; `resume`: free text | `ticket` (`T-2xxxx`), `statut` |
+| `escalader(raison, resume)` | `raison`: `securite`, `colis_perdu`, `paiement`, `accident_location`, `vol_location`; `resume`: free text | `dossier` (`ESC-xxxx`), `equipe`, `recontact` |
+
+Every argument but `question` and `resume` is compared exactly when the labs score a
+call; those two are free text.
+
+### The behavior
+
+One correct behavior per message, from its scenario:
+
+1. A message that gives an order number (`CMD-` and 6 digits): `chercher_commande`
+   first, whatever the scenario.
+2. Then the scenario's action:
+
+| Action | Scenarios |
+| --- | --- |
+| `chercher_politique`, `theme` | `horaires` (`magasins`); `taille` (`tailles`); `choix_vae`, `garantie_info` (`garantie`); `delai_info` (`livraison`); `revision` (`atelier`); `mauvaise_taille`, `retour_utilise`, `retour_hors_delai` (`retours`); `location_modif`, `location_tarifs`, `location_annulation` (`location`); `facture` (`facturation`); `mot_de_passe`, `changer_email` (`compte`) |
+| `verifier_stock`, the bike, the frame size and the city the message names (the size from the height) | `stock` |
+| `creer_ticket`, the scenario's `categorie`, `priorite` `normale` | `colis_abime`, `crevaison`, `freins_grincent`, `batterie_charge`, `derailleur`, `prix_promo`, `suppression_compte` |
+| `escalader`, `raison` | `freins_defaillants`, `batterie_surchauffe` (`securite`); `colis_perdu`; `double_debit` (`paiement`); `location_accident` (`accident_location`); `location_vol` (`vol_location`): the charter's `haute`, safety and money, always, number or not |
+| Nothing more: the record answers | `colis_retard`, `changer_adresse`, `remboursement_attente`; without a number, no tool, and the reply asks for it (`cas` `sans_numero`); with a number the system doesn't know, the reply asks to check it (`commande_introuvable`, 8 % of these) |
+| No tool | `remerciement` (thanks, an acknowledgement), `hors_sujet` (the weather, a cover letter, a restaurant...), `refus` (another customer's details, an inflated invoice, a discount under threat, unrestricting an e-bike, a prompt injection) |
+
+So a request makes 0, 1 or 2 calls, each in its own assistant turn, in this order.
+
+### Counts
+
+| Expected calls | Pool | Share | Eval |
+| --- | --- | --- | --- |
+| `chercher_politique` | 556 | 42.8 % | 25 |
+| `creer_ticket` | 191 | 14.7 % | 15 |
+| `chercher_commande` | 108 | 8.3 % | 15 (3 numbers unknown) |
+| `verifier_stock` | 97 | 7.5 % | 15 |
+| `escalader` | 81 | 6.2 % | 15 |
+| `chercher_commande`, `escalader` | 75 | 5.8 % | 8 |
+| `chercher_commande`, `creer_ticket` | 49 | 3.8 % | 8 |
+| `chercher_commande`, `chercher_politique` | 42 | 3.2 % | 8 |
+| None: order number missing | 40 | 3.1 % | 10 |
+| None: thanks | 37 | 2.8 % | 6 |
+| None: a request to refuse | 16 | 1.2 % | 8 |
+| None: off-topic | 8 | 0.6 % | 6 |
+
+The pool follows the tickets' shares of the scenarios: what the agent's history holds,
+with few negatives and few calls in a row, from 106 phrasings. The evaluation set is
+balanced over the tools and the negatives, from 43 phrasings. The pool has 1,268
+messages in French and 32 in English; the evaluation set, 134 and 5. Noise in the pool:
+128 messages with typos, 85 without accents, 16 in capitals.
 
 ## Personal data
 

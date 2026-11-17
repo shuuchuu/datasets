@@ -1,0 +1,206 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "chercher_commande",
+      "description": "Cherche une commande dans le système de commandes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "type": "string",
+            "description": "le numéro de commande, CMD- suivi de 6 chiffres"
+          }
+        },
+        "required": [
+          "numero"
+        ]
+      },
+      "return": {
+        "type": "object",
+        "description": "la fiche de la commande, ou une erreur si elle est introuvable"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "verifier_stock",
+      "description": "Vérifie le stock d'un modèle de vélo dans un magasin.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "modele": {
+            "type": "string",
+            "enum": [
+              "Biclou Urbain 3",
+              "Biclou Rando 28",
+              "Biclou Gravel G2",
+              "Biclou Route R7",
+              "Biclou Trail 29",
+              "Biclou Pliant P1",
+              "Biclou Junior 24",
+              "Biclou Urbain E5",
+              "Biclou Rando E7",
+              "Biclou Cargo E8",
+              "Biclou Pliant E2"
+            ],
+            "description": "le modèle de vélo"
+          },
+          "taille": {
+            "type": "string",
+            "enum": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "description": "la taille de cadre"
+          },
+          "magasin": {
+            "type": "string",
+            "enum": [
+              "Lille",
+              "Amiens",
+              "Nice",
+              "Marseille",
+              "Nantes",
+              "Rennes"
+            ],
+            "description": "la ville du magasin"
+          }
+        },
+        "required": [
+          "modele",
+          "taille",
+          "magasin"
+        ]
+      },
+      "return": {
+        "type": "object",
+        "description": "la quantité en stock et, en rupture, la date du prochain réassort"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "chercher_politique",
+      "description": "Cherche dans les règles du magasin les passages qui répondent à une question.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "theme": {
+            "type": "string",
+            "enum": [
+              "retours",
+              "livraison",
+              "garantie",
+              "atelier",
+              "location",
+              "facturation",
+              "compte",
+              "magasins",
+              "tailles"
+            ],
+            "description": "la rubrique des règles où chercher"
+          },
+          "question": {
+            "type": "string",
+            "description": "la question, en quelques mots"
+          }
+        },
+        "required": [
+          "theme",
+          "question"
+        ]
+      },
+      "return": {
+        "type": "object",
+        "description": "les passages de la rubrique les plus proches de la question"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "creer_ticket",
+      "description": "Crée un ticket pour une demande que l'équipe doit traiter.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "categorie": {
+            "type": "string",
+            "enum": [
+              "information",
+              "livraison",
+              "reparation",
+              "retour",
+              "location",
+              "facturation",
+              "compte"
+            ],
+            "description": "la catégorie de la demande"
+          },
+          "priorite": {
+            "type": "string",
+            "enum": [
+              "basse",
+              "normale",
+              "haute"
+            ],
+            "description": "la priorité de la demande"
+          },
+          "resume": {
+            "type": "string",
+            "description": "la demande en une phrase"
+          }
+        },
+        "required": [
+          "categorie",
+          "priorite",
+          "resume"
+        ]
+      },
+      "return": {
+        "type": "object",
+        "description": "le numéro du ticket créé"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "escalader",
+      "description": "Transmet la demande à un conseiller, pour un problème de sécurité ou d'argent.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "raison": {
+            "type": "string",
+            "enum": [
+              "securite",
+              "colis_perdu",
+              "paiement",
+              "accident_location",
+              "vol_location"
+            ],
+            "description": "la raison du transfert"
+          },
+          "resume": {
+            "type": "string",
+            "description": "la situation en une phrase"
+          }
+        },
+        "required": [
+          "raison",
+          "resume"
+        ]
+      },
+      "return": {
+        "type": "object",
+        "description": "le numéro du dossier et l'équipe qui le prend en charge"
+      }
+    }
+  }
+]
