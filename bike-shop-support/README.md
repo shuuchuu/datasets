@@ -64,7 +64,7 @@ evaluation set.
   `agent/eval.jsonl`. This version comes from a run without a GPU: Qwen3-0.6B as the
   reference agent on 12 requests, Qwen3-1.7B writing 4 synthetic messages, of which
   none passed the filters and the charter, so the rare classes keep their pool counts
-  (`hors_sujet` 8, `refus` 13, `remerciement` 35). A run on a GPU (Qwen3-1.7B on 240
+  (`hors_sujet` 8, `refus` 13, `remerciement` 35). A run on a GPU (Qwen3-1.7B on 224
   requests, Qwen3-4B-Instruct-2507 for about 300 synthetic messages) is to replace it.
   The fine-tuning lab of the agent loads it, so it doesn't depend on each trainee's run.
 - `generate.py`: writes `tickets.csv` and `test.jsonl` (`python generate.py`, standard
