@@ -53,7 +53,7 @@ as missing files. To get a single file:
 | `nantes-open-data` | Nantes bike stations and polling stations snapshots | Licence Ouverte |
 | `nginx-log` | Online shop nginx access log | CC0 |
 | `press-1914-extraction` | People, places and organizations of 40 `french-press-1914-passages` passages, plus LLM labels for distillation | CC BY 4.0 |
-| `press-1914-qa` | Questions on `french-press-1914-passages` (20 written one by one, 60 generated and reviewed), with answers and source passages, and annotated RAG answers | CC BY 4.0 |
+| `press-1914-qa` | Questions on `french-press-1914-passages` (20 written one by one, 60 generated and reviewed), with answers and source passages, annotated RAG answers, and 619 generated training questions | CC BY 4.0 |
 | `python-exercises` | Small files for Python course exercises | Own data / public domain |
 | `ravens` | Two ravens of the Tower of London, a colour photograph for image processing | CC BY-SA 4.0 |
 | `rosie-the-riveter` | A 1943 colour photograph with a red bandana, for colour isolation | Public domain |
