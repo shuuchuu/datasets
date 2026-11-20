@@ -53,6 +53,7 @@ as missing files. To get a single file:
 | `nantes-open-data` | Nantes bike stations and polling stations snapshots | Licence Ouverte |
 | `nginx-log` | Online shop nginx access log | CC0 |
 | `online-retail-ii` | Online Retail II: a UK online gift-ware retailer's invoice lines, 2009–2011 (UCI) | CC BY 4.0 |
+| `openflights` | OpenFlights airports and airline routes, June 2014, for graph labs | ODbL 1.0 |
 | `press-1914-extraction` | People, places and organizations of 40 `french-press-1914-passages` passages, plus LLM labels for distillation | CC BY 4.0 |
 | `press-1914-qa` | Questions on `french-press-1914-passages` (20 written one by one, 60 generated and reviewed), with answers and source passages, annotated RAG answers, and 619 generated training questions | CC BY 4.0 |
 | `python-exercises` | Small files for Python course exercises | Own data / public domain |
