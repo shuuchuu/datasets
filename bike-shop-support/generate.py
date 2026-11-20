@@ -689,7 +689,7 @@ FR = {
         "reponses": [
             "Merci pour votre message concernant {commande}. Vous disposez de {delai_retour} après la livraison pour retourner le {article_taille}, à condition qu'il soit inutilisé et dans son emballage. Le retour est gratuit dans l'un de nos magasins, ou coûte 6,90 € par colis. Si vous le rapportez en magasin, nos conseillers vous proposeront directement la bonne taille.",
             "Nous sommes désolés que la taille ne convienne pas. Le {article_taille} de {commande} peut être retourné dans les {delai_retour} suivant la livraison, non utilisé et dans son emballage d'origine. Rapportez-le gratuitement dans l'un de nos six magasins, ou renvoyez-le par colis pour 6,90 €. Le remboursement intervient dans les 14 jours suivant la réception et le contrôle du retour à l'entrepôt.",
-            "Pas de souci pour un échange de taille sur {commande}. Le {article_taille} doit nous revenir non utilisé, dans son emballage, dans les {delai_retour} suivant la livraison. Le plus rapide est de le rapporter dans l'un de nos magasins, où le retour est gratuit et l'échange immédiat selon le stock ; par colis, le retour coûte 6,90 €.",
+            "Pas de souci pour un retour ou un échange de taille sur {commande}. Le {article_taille} doit nous revenir non utilisé, dans son emballage, dans les {delai_retour} suivant la livraison. Le plus rapide est de le rapporter dans l'un de nos magasins, où le retour est gratuit et l'échange immédiat selon le stock ; par colis, le retour coûte 6,90 €. Un retour est remboursé dans les 14 jours suivant le contrôle à l'entrepôt.",
         ],
     },
     "remboursement_attente": {
