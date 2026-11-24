@@ -1,8 +1,8 @@
 # OpenFlights airports and routes
 
-The airports of OpenFlights' airport database and the airline routes between them, as of
-June 2014 (3,425 airport codes), for graph labs: a directed graph whose vertices are
-the airports and whose edges are the routes.
+The airports of OpenFlights' airport database (last changed in 2017) and the airline
+routes between them, as of June 2014 (3,425 airport codes), for graph labs: a directed
+graph whose vertices are the airports and whose edges are the routes.
 
 ## Files
 
@@ -14,13 +14,14 @@ the airports and whose edges are the routes.
   none, `U` unknown; empty for 353), `tz` (Olson time zone), `type` (always `airport`), `source`
   (always `OurAirports`).
 - `routes.csv`: 67,663 routes, CSV with a header row: `airline` (two-letter IATA or
-  three-letter ICAO code), `airline_id`, `src` and `dst` (IATA or ICAO code of the
+  three-letter ICAO code), `airline_id`, `src` and `dst` (three-letter code of the
   source and destination airports), `src_id` and `dst_id` (their `airport_id`),
   `codeshare` (`Y` when the route is operated by another carrier), `stops` (0 for a
   direct flight), `equipment` (aircraft types, space-separated). A route is directional
   and given once per airline: an airline flying A to B and back has two rows; 14,597
   rows are codeshares. 406 sources and 416 destinations have no IATA code in
-  `airports.csv` (ICAO codes, or airports missing from it).
+  `airports.csv` (airports missing from it, or listed there without their IATA code),
+  729 routes in all.
 
 ## Source
 
