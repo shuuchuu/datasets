@@ -168,7 +168,10 @@ the agent answers without a tool.
 ### Files
 
 - `outils.json`: the five tools' JSON schemas, as `transformers.utils.get_json_schema`
-  writes them from the labs' Python functions (French names and descriptions).
+  writes them from the labs' Python functions (French names and descriptions). Their
+  `return` key describes the result for the reader: the labs remove it before showing the
+  schemas to a model (an MCP server doesn't declare it, and the serving engines don't
+  write it in the prompt), which reads 135 fewer tokens.
 - `commandes.csv`: what `chercher_commande` reads, 603 orders: every order number a
   request names (303), and 300 that none does, of every status, for the labs' synthetic
   examples. Columns: `numero` (`CMD-` and 6 digits), `date_commande`, `canal`
@@ -202,7 +205,11 @@ the agent answers without a tool.
   (`E-001`...), in the same format. The models the agent chapters compare are measured
   on it, and nothing is trained on it: its messages come from phrasings the pool never
   uses (one or two per scenario, held out), none of its order numbers is in the pool, and
-  no message is near a pool one (the highest word-trigram Jaccard is 0.15).
+  no message is near a pool one (the highest word-trigram Jaccard is 0.15). Only the
+  messages are held out: the reference replies come from the same templates as the
+  pool's (130 of the 139 are at 0.6 or more from a pool reply, 15 are identical), so
+  a score against their text favors a model trained on the pool. Compare models on
+  their calls, or on the facts of their replies.
 - `generate.py`: writes them (`python agent/generate.py`, standard library only, seeded:
   the same bytes each run) and prints the counts below. It imports `../generate.py`'s
   scenarios and slots, and doesn't change `tickets.csv` nor `test.jsonl`.
@@ -231,7 +238,7 @@ One correct behavior per message, from its scenario:
 | Action | Scenarios |
 | --- | --- |
 | `chercher_politique`, `theme` | `horaires` (`magasins`); `taille` (`tailles`); `choix_vae`, `garantie_info` (`garantie`); `delai_info` (`livraison`); `revision` (`atelier`); `mauvaise_taille`, `retour_utilise`, `retour_hors_delai` (`retours`); `location_modif`, `location_tarifs`, `location_annulation` (`location`); `facture` (`facturation`); `mot_de_passe`, `changer_email` (`compte`) |
-| `verifier_stock`, the bike, the frame size and the city the message names (the size from the height) | `stock` |
+| `verifier_stock`, the bike, the frame size and the city the message names | `stock` |
 | `creer_ticket`, the scenario's `categorie`, `priorite` `normale` | `colis_abime`, `crevaison`, `freins_grincent`, `batterie_charge`, `derailleur`, `prix_promo`, `suppression_compte` |
 | `escalader`, `raison` | `freins_defaillants`, `batterie_surchauffe` (`securite`); `colis_perdu`; `double_debit` (`paiement`); `location_accident` (`accident_location`); `location_vol` (`vol_location`): the charter's `haute`, safety and money, always, number or not |
 | Nothing more: the record answers | `colis_retard`, `changer_adresse`, `remboursement_attente`; without a number, no tool, and the reply asks for it (`cas` `sans_numero`); with a number the system doesn't know, the reply asks to check it (`commande_introuvable`, 8 % of these) |
